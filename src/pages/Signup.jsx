@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Signup = () => {
   const [name, setName] = useState();
@@ -10,6 +11,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(name, email, password, newsletter);
       const requete = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         {
@@ -19,8 +21,15 @@ const Signup = () => {
           newsletter: newsletter,
         }
       );
+      // La réponse du serveur se trouve dans requete.data
+      console.log(requete.data);
+      // Recuperation du token
+      const token = requete.data.token;
+      console.log(token);
+      // Création du cookie contenant le token
+      Cookies.set("token", token, { expires: 15 });
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 
