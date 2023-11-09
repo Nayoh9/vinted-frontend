@@ -20,18 +20,20 @@ header > div > button {
   margin-left: 10px;
 }
 
+.sell {
+  height: 30px;
+  width: 130px;
+  background-color: #2eb0ba;
+}
+
 a > button {
   height: 30px;
   width: 130px;
   margin-left: 10px;
 }
 
-header > div > button:nth-child(2) {
+.buttons {
   margin-right: 40px;
-}
-
-header > div > button:nth-child(3) {
-  background-color: #2eb0ba;
 }
 
 .home {
@@ -119,4 +121,8 @@ form input {
 
 form button {
   width: 100%;
+}
+
+.isLogged {
+  background-color: red;
 }

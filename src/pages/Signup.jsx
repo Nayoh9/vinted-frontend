@@ -6,7 +6,7 @@ const Signup = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [newsletter, setNewsletter] = useState(false);
+  const [newsletter, setNewsletter] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
