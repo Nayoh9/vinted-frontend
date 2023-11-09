@@ -20,6 +20,12 @@ header > div > button {
   margin-left: 10px;
 }
 
+a > button {
+  height: 30px;
+  width: 130px;
+  margin-left: 10px;
+}
+
 header > div > button:nth-child(2) {
   margin-right: 40px;
 }
@@ -61,7 +67,7 @@ header > div > button:nth-child(3) {
   background-color: #2eb0ba;
 }
 
-.container {
+.wrapper {
   display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
@@ -91,4 +97,26 @@ header > div > button:nth-child(3) {
 
 .clickedOffer div {
   height: 600px;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+}
+
+form input {
+  width: 100%;
+}
+
+form button {
+  width: 100%;
 }
