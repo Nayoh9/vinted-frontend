@@ -1,12 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [newsletter, setNewsletter] = useState(true);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,6 +31,7 @@ const Signup = () => {
       console.log(token);
       // Création du cookie contenant le token
       Cookies.set("token", token, { expires: 15 });
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }

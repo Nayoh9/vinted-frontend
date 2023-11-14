@@ -1,16 +1,25 @@
 import "./App.css";
-import Header from "./components/Header";
+
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
+
+// Components
+import Header from "./components/Header";
 
 // Pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 function App() {
-  const [isConnected, setIsConnected] = useState(false);
+  // Si à l'ouverture d'une page nos cookies contiennent token2 alors on est toujours connecté, sinon non
+  const [isConnected, setIsConnected] = useState(
+    Cookies.get("token2") ? true : false
+  );
   return (
     <Router>
       <Header isConnected={isConnected} setIsConnected={setIsConnected} />
@@ -26,6 +35,8 @@ function App() {
             <Login isConnected={isConnected} setIsConnected={setIsConnected} />
           }
         />
+        <Route path="/publish" element={<Publish />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </Router>
   );

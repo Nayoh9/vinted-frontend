@@ -37,15 +37,23 @@ const Home = () => {
       <div className="wrapper">
         {data.offers.map((elem) => {
           // console.log(elem);
-          // console.log(elem.owner.account.avatar.secure_url);
+          // console.log(elem.owner.account.avatar);
           return (
+            // Lien pour la route dynamique offers
             <Link to={`/offers/${elem._id}`} key={elem._id}>
               <div key={elem._id} className="children">
                 <p>
-                  {/* image de l'avatar cassé depuis l'ajout de tom (a voir plus tard) */}
-                  <img />
+                  {elem.owner.account.avatar ? (
+                    <img
+                      src={elem.owner.account.avatar.secure_url}
+                      alt="Avatar"
+                    />
+                  ) : (
+                    ""
+                  )}
                   {elem.owner.account.username}
                 </p>
+
                 <img
                   className="product-image"
                   src={elem.product_image.secure_url}

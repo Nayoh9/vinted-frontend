@@ -36,12 +36,6 @@ const Login = ({ isConnected, setIsConnected }) => {
       Cookies.set("token2", token, { expires: 15 });
       setIsConnected(true);
       navigate("/");
-
-      // Utiliser un navigate pour ramener dans le home
-      // A partir d'ici le bouton se deconnecté doit etre mis en place
-      // Si on clique sur se déconnecter ou doit se re faire navigate sur le home
-      // Et les cookies doivent etre supprimés
-      // Le bouton doit repasser dans le state d'origine
     } catch (error) {
       console.log(error.message);
     }

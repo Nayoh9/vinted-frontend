@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ isConnected, setIsConnected }) => {
   // console.log(isConnected);
+  const navigate = useNavigate();
   return (
     <header>
       <Link to="/">
@@ -20,6 +22,7 @@ const Header = ({ isConnected, setIsConnected }) => {
             onClick={() => {
               Cookies.remove("token2");
               setIsConnected(false);
+              navigate("/");
             }}
           >
             Se déconnecter
@@ -36,7 +39,18 @@ const Header = ({ isConnected, setIsConnected }) => {
         </div>
       )}
 
-      <button className="sell">Vends tes articles</button>
+      <button
+        className="sell"
+        onClick={() => {
+          if (Cookies.get("token2")) {
+            navigate("/publish");
+          } else {
+            navigate("/signup");
+          }
+        }}
+      >
+        Vends tes articles
+      </button>
     </header>
   );
 };

@@ -126,3 +126,16 @@ form button {
 .isLogged {
   background-color: red;
 }
+
+.payment > article,
+form {
+  margin-bottom: 40px;
+  width: 50%;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+}
